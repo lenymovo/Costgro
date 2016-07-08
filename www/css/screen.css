@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 5, C:/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -63,7 +64,128 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 3, ../sass/screen.scss */
-p {
-  color: red;
+@font-face {
+  font-family: "Proxima Nova";
+  src: local("Proxima Nova"), url("../fonts/proximanova-regular.otf") format("opentype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: local("Proxima Nova"), url("../fonts/proximanova-semibold.otf") format("opentype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: local("Proxima Nova"), url("../fonts/proximanova-bold.otf") format("opentype");
+  font-weight: bold;
+}
+/* main background┬аcolor*/
+/* line 28, ../sass/screen.scss */
+html {
+  font-size: 14px;
+}
+
+/* line 30, ../sass/screen.scss */
+html body * {
+  font-family: Proxima Nova;
+  font-weight: normal;
+  color: black;
+}
+
+/* line 34, ../sass/screen.scss */
+header {
+  height: 90px;
+}
+/* line 38, ../sass/screen.scss */
+header .row > * {
+  border: 1px solid;
+  height: 90px;
+}
+/* line 43, ../sass/screen.scss */
+header .logo img {
+  margin-top: 10px;
+}
+/* line 46, ../sass/screen.scss */
+header .menu p {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 36px;
+  color: #c4b07a;
+  margin-top: 5px;
+  border: 1px solid;
+}
+/* line 55, ../sass/screen.scss */
+header .menu p .fi {
+  margin-right: 10px;
+  font-size: 14px;
+  color: inherit;
+}
+/* line 62, ../sass/screen.scss */
+header .menu .main-menu a {
+  display: inline-block;
+  border-right: 1px solid black;
+  height: 14px;
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 16px;
+  padding: 0 25px;
+}
+/* line 72, ../sass/screen.scss */
+header .menu .main-menu a:last-child {
+  border: none;
+}
+/* line 74, ../sass/screen.scss */
+header .menu .main-menu a:first-child {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+/* line 76, ../sass/screen.scss */
+header .menu .main-menu a #carts {
+  display: inherit;
+  font-size: 13px;
+  vertical-align: top;
+  color: #e8930c;
+}
+/* line 81, ../sass/screen.scss */
+header .menu .main-menu a #carts:before {
+  content: "(";
+  margin-left: 5px;
+}
+/* line 82, ../sass/screen.scss */
+header .menu .main-menu a #carts:after {
+  content: ")";
+}
+/* line 87, ../sass/screen.scss */
+header .search {
+  text-align: right;
+  padding-top: 10px;
+}
+/* line 91, ../sass/screen.scss */
+header .search .search-menu a {
+  font-size: 12px;
+  padding-right: 5px;
+  font-weight: 600;
+  border-right: 1px solid black;
+}
+/* line 96, ../sass/screen.scss */
+header .search .search-menu a:last-child {
+  border: none;
+}
+/* line 97, ../sass/screen.scss */
+header .search .search-menu a:first-child {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+/* line 100, ../sass/screen.scss */
+header .search #site-search {
+  background-color: #f3efe4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #e2d9bf;
+  width: 250px;
+  height: 35px;
+  float: right;
+  margin-top: 10px;
 }
