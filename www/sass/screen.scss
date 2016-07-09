@@ -21,36 +21,64 @@
 	font-weight: bold;
 }
 
+@mixin set-font($size: 14px,
+				$color: black,
+				$leading: 1rem,
+				$weight: normal,
+				$style: normal){
+	font: {
+		size: $size;
+		weight: $weight;
+		style: $style;
+	}
+	line-height: $leading;
+	color: $color;
+}
+
+::-webkit-input-placeholder { color: #757f3c; opacity: 0.2; }
+::-moz-placeholder          { color: #757f3c; opacity: 0.2; } /* Firefox 19+ */
+:-moz-placeholder           { color: #757f3c; opacity: 0.2; } /* Firefox 18- */
+:-ms-input-placeholder      { color: #757f3c; opacity: 0.2; }
+
 $fs: 14px;
 $ff: Proxima Nova;
 $mbc: #f3efe4; /* main background color*/
 
-html{ font-size: $fs; }
+html{
+	font-size: $fs;
+	background: $mbc; }
 
-html body *{ font-family: $ff;
+html body *{ font-family: $ff, Georgia, Arial;
 		font-weight: normal;
-		color: black; }
+		color: black;
+		outline: none; }
+
+.search-container{
+	& #site-search{
+		font-family: Georgia, Proxima Nova, Arial;
+		@include set-font($fs - 2px, #757f3c, 1rem, bold, italic);
+		padding: 0 10px; }
+
+	& i{
+		position: absolute;
+		@include set-font(20px, #757f3c);
+		right: 23px;
+		bottom: 26px; }
+}
 
 header{
 	$hheight: 90px !global;
 	height: $hheight;
 
-	& .row > *{
-		border: 1px solid;
-		height: $hheight;
-	}
+	& .row > *{ height: $hheight; }
 
 	& .logo img{ margin-top: 10px; }
 
 	& .menu {
 		& p{ 
+			@include set-font($fs - 3px, #c4b07a,36px, 600);
 			text-transform: uppercase;
-			font-size: $fs - 3px; 
-			font-weight: 600;
-			line-height: 36px;
-			color: #c4b07a; 
 			margin-top: 5px;
-			border: 1px solid;
 
 			& .fi{
 				margin-right: 10px;
@@ -64,9 +92,7 @@ header{
 			border-right: 1px solid black;
 			height: $fs;
 			margin-top: 5px;
-			font-size: $fs + 2px;
-			font-weight: 600;
-			line-height: $fs + 2px;
+			@include set-font($fs + 2px, black, $fs + 2px, 600);
 			padding: 0 25px;
 
 			&:last-child{ border: none; }
@@ -75,9 +101,9 @@ header{
 
 			& #carts{
 				display: inherit;
-				font-size: $fs - 1px;
 				vertical-align: top;
-				color: #e8930c;
+				@include set-font($fs - 1px, #e8930c, 1.8rem);
+
 				&:before{ content: "("; margin-left: 5px; }
 				&:after{ content: ")"; }
 			}
@@ -100,7 +126,7 @@ header{
 		& #site-search{
 			background-color: $mbc;
 			-webkit-border-radius: 5px;
-			        border-radius: 5px;
+					border-radius: 5px;
 			border: 1px solid #e2d9bf;
 			width: 250px;
 			height: 35px;

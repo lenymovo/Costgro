@@ -79,49 +79,98 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   src: local("Proxima Nova"), url("../fonts/proximanova-bold.otf") format("opentype");
   font-weight: bold;
 }
+/* line 38, ../sass/screen.scss */
+::-webkit-input-placeholder {
+  color: #757f3c;
+  opacity: 0.2;
+}
+
+/* line 39, ../sass/screen.scss */
+::-moz-placeholder {
+  color: #757f3c;
+  opacity: 0.2;
+}
+
+/* Firefox 19+ */
+/* line 40, ../sass/screen.scss */
+:-moz-placeholder {
+  color: #757f3c;
+  opacity: 0.2;
+}
+
+/* Firefox 18- */
+/* line 41, ../sass/screen.scss */
+:-ms-input-placeholder {
+  color: #757f3c;
+  opacity: 0.2;
+}
+
 /* main background┬аcolor*/
-/* line 28, ../sass/screen.scss */
+/* line 47, ../sass/screen.scss */
 html {
   font-size: 14px;
+  background: #f3efe4;
 }
 
-/* line 30, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 html body * {
-  font-family: Proxima Nova;
+  font-family: Proxima Nova, Georgia, Arial;
   font-weight: normal;
   color: black;
+  outline: none;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 57, ../sass/screen.scss */
+.search-container #site-search {
+  font-family: Georgia, Proxima Nova, Arial;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1rem;
+  color: #757f3c;
+  padding: 0 10px;
+}
+/* line 62, ../sass/screen.scss */
+.search-container i {
+  position: absolute;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1rem;
+  color: #757f3c;
+  right: 23px;
+  bottom: 26px;
+}
+
+/* line 69, ../sass/screen.scss */
 header {
   height: 90px;
 }
-/* line 38, ../sass/screen.scss */
+/* line 73, ../sass/screen.scss */
 header .row > * {
-  border: 1px solid;
   height: 90px;
 }
-/* line 43, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 header .logo img {
   margin-top: 10px;
 }
-/* line 46, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 header .menu p {
-  text-transform: uppercase;
   font-size: 11px;
   font-weight: 600;
+  font-style: normal;
   line-height: 36px;
   color: #c4b07a;
+  text-transform: uppercase;
   margin-top: 5px;
-  border: 1px solid;
 }
-/* line 55, ../sass/screen.scss */
+/* line 83, ../sass/screen.scss */
 header .menu p .fi {
   margin-right: 10px;
   font-size: 14px;
   color: inherit;
 }
-/* line 62, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 header .menu .main-menu a {
   display: inline-block;
   border-right: 1px solid black;
@@ -129,56 +178,61 @@ header .menu .main-menu a {
   margin-top: 5px;
   font-size: 16px;
   font-weight: 600;
+  font-style: normal;
   line-height: 16px;
+  color: black;
   padding: 0 25px;
 }
-/* line 72, ../sass/screen.scss */
+/* line 98, ../sass/screen.scss */
 header .menu .main-menu a:last-child {
   border: none;
 }
-/* line 74, ../sass/screen.scss */
+/* line 100, ../sass/screen.scss */
 header .menu .main-menu a:first-child {
   margin-left: 0px;
   padding-left: 0px;
 }
-/* line 76, ../sass/screen.scss */
+/* line 102, ../sass/screen.scss */
 header .menu .main-menu a #carts {
   display: inherit;
-  font-size: 13px;
   vertical-align: top;
+  font-size: 13px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.8rem;
   color: #e8930c;
 }
-/* line 81, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 header .menu .main-menu a #carts:before {
   content: "(";
   margin-left: 5px;
 }
-/* line 82, ../sass/screen.scss */
+/* line 108, ../sass/screen.scss */
 header .menu .main-menu a #carts:after {
   content: ")";
 }
-/* line 87, ../sass/screen.scss */
+/* line 113, ../sass/screen.scss */
 header .search {
   text-align: right;
   padding-top: 10px;
 }
-/* line 91, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
 header .search .search-menu a {
   font-size: 12px;
   padding-right: 5px;
   font-weight: 600;
   border-right: 1px solid black;
 }
-/* line 96, ../sass/screen.scss */
+/* line 122, ../sass/screen.scss */
 header .search .search-menu a:last-child {
   border: none;
 }
-/* line 97, ../sass/screen.scss */
+/* line 123, ../sass/screen.scss */
 header .search .search-menu a:first-child {
   margin-left: 0px;
   padding-left: 0px;
 }
-/* line 100, ../sass/screen.scss */
+/* line 126, ../sass/screen.scss */
 header .search #site-search {
   background-color: #f3efe4;
   -webkit-border-radius: 5px;
