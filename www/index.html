@@ -12,11 +12,14 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/jquery.dotdotdot.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 
 </head>
 <body>
-	<header class="container">
+	<header class="container-fluid">
 		<div class="row"> 
 			<div class="logo col-md-2 hidden-sm hidden-xs">
 				<img src="img/logo.png" alt="Логотип">
@@ -39,6 +42,7 @@
 					<a href="#">Wishlist</a>
 					<a href="#">Sign Out</a>
 				</nav>
+
 				<div class="search-container">
 					<i class="fa fa-search" aria-hidden="true"></i>
 					<input id="site-search" type="search" placeholder="Search Costgro...."/>
@@ -46,7 +50,133 @@
 			</div>
 		</div>
 	</header>
-	<main role="main"></main>
-	<footer></footer>
+
+	<main class="container-fluid" role="main">
+		<section class="row">
+			<article id="main-article" class="col-xs-12">
+				<h1>Latest Blog Post</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<a href="#" class="main-button">main button</a>
+<img id="main-pict" src="img/main-blog.jpg" alt="Latest Blog Post" onload="positioningPicture(this)">
+			</article>
+
+
+
+
+			<aside class="categories col-md-3 hidden-xs hidden-sm">
+				<nav class="category">
+					<a href="">Category 1</a>
+					<a href="">Category 2</a>
+					<a href="">Category 123123123123123123123123123123321312312312312312312321321321321</a>
+				</nav>
+
+				<nav class="archives">
+					<a href="" class="active">July 2013</a>
+					<a href="">June 2013</a>
+					<a href="">May 2013</a>
+					<a href="">April 2013</a>
+					<a href="">March 2013</a>
+				</nav>
+
+				<nav class="follow">
+					<a href=""><i class="fa fa-facebook"></i>Facebook</a>
+					<a href=""><i class="fa fa-pinterest"></i>Pinterest</a>
+					<a href=""><i class="fa fa-instagram"></i>Instagram</a>
+					<a href=""><i class="fa fa-twitter"></i>Twitter</a>
+					<a href=""><i class="fa fa-rss"></i>RSS Feed</a>
+				</nav>
+
+				<div class="join">
+					<i class="fa fa-envelope" aria-hidden="true"></i>
+					<input id="join-input" type="search" placeholder="Enter Your Email"/>
+				</div>
+
+			</aside>
+
+
+
+
+
+			<article class="latest-posts col-xs-12 col-md-9">
+				<section class="post-1">
+					<picture><img src="img/main-blog3.jpg" alt="picture"></picture>
+					<h2>New Laws In Washington New Laws In Washington New Laws In Washington New Laws In Washington</h2>
+					<p><span class="date"><i class="fa fa-clock-o"></i>July 12, 2013</span><span class="author"><i class="fa fa-user"></i>Joe Shmoe</span></p>
+					<div class="post">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates labore, repellat amet atque, ea, repellendus non aperiam illum reiciendis ipsum asperiores. Consectetur deleniti ratione aliquid, vitae earum provident vero, consequatur, quia fuga quidem reprehenderit ducimus impedit a? Voluptatem itaque eaque vitae libero quod laboriosam quos reiciendis quis placeat aspernatur, delectus id eum nihil voluptatibus tempore aut repellendus minima aperiam blanditiis asperiores beatae quam culpa accusantium. Vitae, suscipit, tenetur. Tenetur animi nobis, atque totam sapiente nulla assumenda fugit culpa quaerat placeat amet perspiciatis tempore blanditiis magnam in explicabo quidem minus ea nam, quasi. Animi doloremque sint labore eaque minima itaque, dolore velit voluptatibus at accusamus nihil nostrum a facere. Temporibus natus eligendi voluptate labore dolor repellat, eius laborum molestias est adipisci, consequatur, quia fuga quidem reprehenderit ducimus impedit a? Voluptatem itaque eaque vitae libero quod laboriosam quos reiciendis quis placeat aspernatur, delectus id eum nihil voluptatibus tempore aut repellendus minima aperiam blanditiis asperiores beatae quam culpa accusantium. Vitae, suscipit, tenetur. Tenetur animi nobis, atque totam sapiente nulla assumenda fugit culpa quaerat placeat amet perspiciatis tempore blanditiis magnam in explicabo quidem minus ea nam, quasi. Animi doloremque sint labore eaque minima itaque, dolore velit voluptatibus at accusamus nihil nostrum a facere. Temporibus natus eligendi voluptate labore dolor repellat, <a href="#" class="readmore"></a></p>
+					</div>
+				</section>
+
+				<section class="post-2">
+					<picture><img src="img/main-blog2.jpg" alt="picture"></picture>
+					<h2>New Laws In Washington</h2>
+					<p><span class="date"><i class="fa fa-clock-o"></i>July 12, 2013</span><span class="author"><i class="fa fa-user"></i>Muliebria Historico-Medico, hoc est Partium Genitalium Muliebrium Consideratio Physico-Medico-Forensis qua Pudendi Muliebris Partes</span></p>
+					<div class="post">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates labore, repellat amet atque, ea, repellendus non aperiam illum reiciendis ipsum asperiores. Consectetur deleniti ratione aliquid, vitae earum provident vero, consequatur, quia fuga quidem reprehenderit ducimus impedit a? Voluptatem itaque eaque vitae libero quod laboriosam quos reiciendis quis placeat aspernatur, delectus id eum nihil voluptatibus tempore aut repellendus minima aperiam blanditiis asperiores beatae quam culpa accusantium. Vitae, suscipit, tenetur. Tenetur animi nobis, atque totam sapiente nulla assumenda fugit culpa quaerat placeat amet perspiciatis tempore blanditiis magnam in explicabo quidem minus ea nam, quasi. Animi doloremque sint labore eaque minima itaque, dolore velit voluptatibus at accusamus nihil nostrum a facere. Temporibus natus eligendi voluptate labore dolor repellat, eius laborum molestias est adipisci, consequatur, quia fuga quidem reprehenderit ducimus impedit a? Voluptatem itaque eaque vitae libero quod laboriosam quos reiciendis quis placeat aspernatur, delectus id eum nihil voluptatibus tempore aut repellendus minima aperiam blanditiis asperiores beatae quam culpa accusantium. Vitae, suscipit, tenetur. Tenetur animi nobis, atque totam sapiente nulla assumenda fugit culpa quaerat placeat amet perspiciatis tempore blanditiis magnam in explicabo quidem minus ea nam, quasi. Animi doloremque sint labore eaque minima itaque, dolore velit voluptatibus at accusamus nihil nostrum a facere. Temporibus natus eligendi voluptate labore dolor repellat, <a href="#" class="readmore"></a></p>
+					</div>
+				</section>
+
+				<section class="post-3">
+					<picture><img src="img/main-blog1.jpg" alt="picture"></picture>
+					<h2>New Laws In Washington</h2>
+					<p><span class="date"><i class="fa fa-clock-o"></i>July 12, 2013</span><span class="author"><i class="fa fa-user"></i>Joe Shmoe</span></p>
+					<div class="post">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates labore, repellat amet atque, ea, repellendus non aperiam illum reiciendis ipsum asperiores. Consectetur deleniti ratione aliquid, vitae earum provident vero, consequatur, quia fuga quidem reprehenderit ducimus impedit a? Voluptatem itaque eaque vitae libero quod laboriosam quos reiciendis quis placeat aspernatur, delectus id eum nihil voluptatibus tempore aut repellendus minima aperiam blanditiis asperiores beatae quam culpa accusantium. Vitae, suscipit, tenetur. Tenetur animi nobis, atque totam sapiente nulla assumenda fugit culpa quaerat placeat amet perspiciatis tempore blanditiis magnam in explicabo quidem minus ea nam, quasi. Animi doloremque sint labore eaque minima itaque, dolore velit voluptatibus at accusamus nihil nostrum a facere. Temporibus natus eligendi voluptate labore dolor repellat, eius laborum molestias est adipisci, consequatur, quia fuga quidem reprehenderit ducimus impedit a? Voluptatem itaque eaque vitae libero quod laboriosam quos reiciendis quis placeat aspernatur, delectus id eum nihil voluptatibus tempore aut repellendus minima aperiam blanditiis asperiores beatae quam culpa accusantium. Vitae, suscipit, tenetur. Tenetur animi nobis, atque totam sapiente nulla assumenda fugit culpa quaerat placeat amet perspiciatis tempore blanditiis magnam in explicabo quidem minus ea nam, quasi. Animi doloremque sint labore eaque minima itaque, dolore velit voluptatibus at accusamus nihil nostrum a facere. Temporibus natus eligendi voluptate labore dolor repellat,
+							<a href="#" class="readmore"></a></p>
+					</div>
+				</section>
+			</article>
+		</section>
+	</main>
+
+	<footer class="container-fluid">
+		<div class="row"> 
+			<nav class="footer-nav customer col-sm-3 hidden-xs">
+				<hr noshade>
+				<a href="#">Track Order</a>
+				<a href="#">Shipping Policy</a>
+				<a href="#">No-Hassle Return Policy</a>
+				<a href="#">FAQ</a>
+				<a href="#">Company Info</a>
+				<a href="#">Customer Testimonials</a>
+				<a href="#">Privacy Policy</a>
+				<a href="#">Sitemap</a>
+			</nav>
+
+			<nav class="footer-nav shop col-xs-8 col-sm-6">
+				<hr>
+				<p>
+					<a href="#">Air / HVAC</a>
+					<a href="#">Controllers, Timers & Meters</a>
+					<a href="#">Grow Media</a>
+					<a href="#">Grow Systems</a>
+					<a href="#">Grow Tents</a>
+					<a href="#">Lighting</a>
+					<a href="#">Nutrients</a>
+					<a href="#">Pest & Disease Control</a>
+					<a href="#">pH / TDS Solutions & Meters</a>
+					<a href="#">Pots & Containers</a>
+					<a href="#">Propagation</a>
+					<a href="#">Tools & Accessories</a>
+					<a href="#">Grow Trays, Reservoirs & Stands</a>
+					<a href="#">Water</a>
+				</p>
+			</nav>
+
+			<nav class="footer-nav follow-footer col-xs-4 col-sm-3">
+				<hr>
+				<a href="#"><i class="fa fa-facebook"></i>Facebook</a>
+				<a href="#"><i class="fa fa-pinterest"></i>Pinterest</a>
+				<a href="#"><i class="fa fa-instagram"></i>Instagram</a>
+				<a href="#"><i class="fa fa-twitter"></i>Twitter</a>
+
+				<div class="col-xs-12 search-footer">
+					<hr>
+					<i class="fa fa-search" aria-hidden="true"></i>
+					<input type="search" id="footer-search" placeholder="Start search..."/>
+				</div>
+			</nav>
+		</div>
+	</footer>
 </body>
 </html>

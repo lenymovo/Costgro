@@ -21,6 +21,10 @@
 	font-weight: bold;
 }
 
+$fs: 14px;
+$ff: Proxima Nova;
+$mbc: #f3efe4; /* main background color*/
+
 @mixin set-font($size: 14px,
 				$color: black,
 				$leading: 1rem,
@@ -30,49 +34,70 @@
 		size: $size;
 		weight: $weight;
 		style: $style;
-	}
+		family: Proxima Nova; }
+
 	line-height: $leading;
 	color: $color;
 }
 
-::-webkit-input-placeholder { color: #757f3c; opacity: 0.2; }
-::-moz-placeholder          { color: #757f3c; opacity: 0.2; } /* Firefox 19+ */
-:-moz-placeholder           { color: #757f3c; opacity: 0.2; } /* Firefox 18- */
-:-ms-input-placeholder      { color: #757f3c; opacity: 0.2; }
+@mixin oneStrCut(){
+	overflow: hidden;
+	white-space: nowrap;
+	-ms-text-overflow: ellipsis;
+		text-overflow: ellipsis; 
+}
 
-$fs: 14px;
-$ff: Proxima Nova;
-$mbc: #f3efe4; /* main background color*/
+input{
+	background-color: $mbc;
+	-webkit-border-radius: 5px;
+			border-radius: 5px;
+			border: 1px solid #e2d9bf;
+	height: 35px;
+	@include set-font($fs - 2px, #757f3c, 1rem, bold, italic);
+	font-family: Georgia;
+	padding: 0 10px;
+	-webkit-box-shadow:  0px 3px 2px -1px #e2d9bf inset;
+			box-shadow: 0px 3px 2px -1px #e2d9bf inset;
+}
 
-html{
-	font-size: $fs;
-	background: $mbc; }
+::-webkit-input-placeholder { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); }
+::-moz-placeholder          { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); } /* Firefox 19+ */
+:-moz-placeholder           { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); } /* Firefox 18- */
+:-ms-input-placeholder      { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); }
 
-html body *{ font-family: $ff, Georgia, Arial;
-		font-weight: normal;
-		color: black;
-		outline: none; }
+i.fa{ font-family: FontAwesome !important; }
 
-.search-container{
-	& #site-search{
-		font-family: Georgia, Proxima Nova, Arial;
-		@include set-font($fs - 2px, #757f3c, 1rem, bold, italic);
-		padding: 0 10px; }
+*:focus { outline: none !important; }
 
-	& i{
-		position: absolute;
-		@include set-font(20px, #757f3c);
-		right: 23px;
-		bottom: 26px; }
+html{ font-size: $fs; 
+	& body{
+		background-color: $mbc;
+
+		& body *{ font-family: $ff, Georgia, Arial;
+			font-weight: normal;
+			color: black; }
+
+		& main, & footer .row{
+			max-width: 1030px;
+			margin: 0 auto; }
+
+		& .row > *{ padding: 0; }
+	}
 }
 
 header{
 	$hheight: 90px !global;
 	height: $hheight;
+	background-color: #FFF;
+	border: 1px solid #e4ded1;
 
-	& .row > *{ height: $hheight; }
+	& .row{ max-width: 1030px;
+			margin: 0 auto;
 
-	& .logo img{ margin-top: 10px; }
+		& > *{ height: $hheight; }
+		& .logo { padding: 0; }
+		& .logo img{ margin-top: 10px; }
+	}
 
 	& .menu {
 		& p{ 
@@ -112,10 +137,11 @@ header{
 
 	& .search{
 		text-align: right;
-		padding-top: 10px;
+		padding-top: 10px !important;
 
 		& .search-menu a{
 			font-size: $fs - 2px;
+			color: black;
 			padding-right: 5px;
 			font-weight: 600;
 			border-right: 1px solid black;
@@ -123,15 +149,261 @@ header{
 			&:first-child{ margin-left: 0px; padding-left: 0px;}
 		}
 
-		& #site-search{
-			background-color: $mbc;
-			-webkit-border-radius: 5px;
-					border-radius: 5px;
-			border: 1px solid #e2d9bf;
-			width: 250px;
-			height: 35px;
-			float: right;
-			margin-top: 10px;
+		& .search-container{
+			& #site-search{
+				width: 250px;
+				float: right;
+				margin-top: 10px; }
+
+			& i{
+				position: absolute;
+				@include set-font(20px, #757f3c);
+				right: 8px;
+				bottom: 28px; }
 		}
 	}
+}
+
+main{
+	background-color: #FFF;
+	margin-top: 40px !important;
+	margin-bottom: 40px !important;
+	border: 1px solid #e4ded1;
+	-webkit-border-radius: 5px;
+			border-radius: 5px;
+
+
+	& > .row{
+		padding: 25px 35px;
+		height: auto;
+
+		& article:first-child{
+			overflow: hidden;
+			height: 400px;
+			text-align: center;
+			position: relative;
+
+			& > *{ position: absolute; z-index: 1; }
+
+			& img{ visibility: hidden; }
+
+			& h1 { 
+				@include set-font(48px, white, 36px, bold);
+				top: 140px;
+				left: 50px; }
+
+			& > a{
+				display: inline-block;
+				height: 45px;
+				width: 180px;
+				left: 50px;
+				bottom: 50px;
+				text-decoration: none;
+				text-transform: uppercase;
+				@include set-font($fs, white, 45px, bold);
+				background: #e8930c;
+				-webkit-border-radius: 5px;
+						border-radius: 5px;
+				border-bottom: 2px solid #d08000;
+				border-right: 2px solid #d08000;
+			}
+
+			& p {
+				@include set-font($fs + 4px, white, 24px);
+				margin: 30px 0 20px 50px;
+				top: 185px;
+				width: 650px;
+				height: 72px;
+				overflow: hidden;
+				text-align: left;
+			}
+		}
+
+		& article.latest-posts{ 
+			& section{
+				position: static !important;
+				display: block;
+				height: 200px;
+				width: 100%;
+				padding: 35px 0 40px 0;
+				border-bottom: 1px solid lightgrey;
+
+				&:last-child{ border: none; }
+
+				& > *{ margin: 0; }
+
+				& picture{
+					height: 140px;
+					width: 200px;
+					float: left;
+					margin-right: 30px;
+					text-align: center;
+					& img{ max-width: 200px; max-height: 140px; }
+				}
+
+				& > p{ margin-bottom: 0; @include oneStrCut(); }
+
+				& .post{
+					height: 100px;
+					@include set-font($fs, grey, 24px, bold);
+					& .readmore { text-decoration: none; }
+					& .readmore:after{ content: ' Read More'; color: #d98d1b; }
+					& p { overflow: hidden; }
+				}
+
+				& h2{ 
+					@include set-font($fs + 10px, #d98d1b, 24px, normal);
+					vertical-align: top;
+					@include oneStrCut(); }
+
+				& span{
+					@include set-font($fs - 2px, lightgrey, 24px, 600, italic);
+					font-family: Georgia;
+					& i{ margin-right: 5px; }
+					&:last-child{ margin-left: 10px; }
+				}
+			}
+
+			&:before{
+				display: inline-block;
+				text-transform: uppercase;
+				@include set-font($fs, gray, 24px, 600);
+				content: 'latest posts';
+				margin-top: 30px;
+			}
+		}
+	}
+}
+
+aside.categories{
+	margin-top: 20px !important;
+
+	& *{ @include set-font($fs, black, 24px, 600); }
+
+	& > *:before{
+		display: inline-block;
+		text-transform: uppercase;
+		color: grey;
+		margin: 30px 0; }
+	& > *:first-child:before{ margin-top: 10px; }
+
+	& nav a{ display: block; }
+
+	& .category a{ @include oneStrCut(); margin-right: 50px; }
+
+	& .category:before{ content: 'categories'; }
+	& .archives:before{ content: 'archives'; }
+	& .follow:before{ 	content: 'follow us'; }
+	& .join:before{ 	content: 'join newsletter'; }
+
+	& a.active,
+	& a:active,
+	& a:hover{ color: #94a14c; text-decoration: underline; }
+
+	& .follow a{
+		position: relative;
+		margin-left: 25px;
+
+		& i{ font-family: FontAwesome;
+			position: absolute;
+			left: -25px; 
+			&.fa-rss{ color: #d98d1b; }
+		}
+	}
+
+	& .join{
+		position: relative;
+
+		& #join-input{
+			width: 160px;
+			float: left;
+			margin-top: -10px;
+		}
+
+		& i{
+			position: absolute;
+			@include set-font(20px, #757f3c);
+			left: 130px;
+			bottom: -12px; }
+	}
+}
+
+hr{
+	height: 1px !important;
+	color: #51582a;
+	background-color: #51582a;
+	border: 0px none !important;
+	border-bottom: 1px solid #889446 !important;
+	clear: both;
+	margin-right: 50px; }
+
+footer{
+	background-color: #757f3c;
+	padding-top: 50px;
+	padding-bottom: 30px;
+	height: auto;
+
+	& a{
+		display: block;
+		text-decoration: none !important;
+		@include set-font($fs, #ffffff, 19px, normal);
+		&:hover{ color: #3b401e; }
+	}
+
+	& .row > *{
+		position: relative;
+		padding-right: 50px;
+
+		&:before{
+			position: absolute;
+			top: -20px;
+			text-transform: uppercase;
+			@include set-font($fs, #3b401e, 36px, bold);
+		}
+	}
+
+
+	& .follow-footer{
+		& a{ position: relative; margin-left: 20px; }
+		& hr{ margin-right: 0 !important; }
+		& > a i{ position: absolute; left: -20px; }
+	}
+
+	& .shop{
+		height: 200px;
+		& p{
+			height: 200px;
+			-webkit-column-count: 2;
+			-moz-column-count: 2;
+			column-count: 2;
+			-webkit-column-gap: 10px;
+			-moz-column-gap: 10px;
+			column-gap: 10px;
+		}
+	}
+
+	& nav .search-footer{ 
+		margin-top: 30px; 
+		padding: 0; 
+		position: relative;
+
+		& input{ width: 100%; }
+
+		& i{
+			position: absolute;
+			@include set-font(20px, #757f3c);
+			right: 8px;
+			bottom: 13px;
+		}
+	}
+
+	& .customer:before { content: 'CUSTOMER SERVICE'; }
+	& .shop:before { content: 'SHOP COSTGRO'; }
+	& .follow-footer:before { content: 'FOLLOW COSTGRO'; }
+	& .search-footer:before { 
+		content: 'SEARCH COSTGRO';
+		position: absolute;
+		top: -20px;
+		text-transform: uppercase;
+		@include set-font($fs, #3b401e, 36px, bold);}
 }
