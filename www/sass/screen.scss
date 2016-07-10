@@ -61,8 +61,8 @@ input{
 }
 
 ::-webkit-input-placeholder { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); }
-::-moz-placeholder          { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); } /* Firefox 19+ */
-:-moz-placeholder           { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); } /* Firefox 18- */
+input::-moz-placeholder     { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 35px, bold, italic); } /* Firefox 19+ */
+input:-moz-placeholder      { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 35px, bold, italic); } /* Firefox 18- */
 :-ms-input-placeholder      { color: #757f3c; opacity: 0.4; @include set-font($fs - 2px, #757f3c, 1rem, bold, italic); }
 
 i.fa{ font-family: FontAwesome !important; }
@@ -72,6 +72,7 @@ i.fa{ font-family: FontAwesome !important; }
 html{ font-size: $fs; 
 	& body{
 		background-color: $mbc;
+		overflow-x: hidden;
 
 		& body *{ font-family: $ff, Georgia, Arial;
 			font-weight: normal;
@@ -100,6 +101,8 @@ header{
 	}
 
 	& .menu {
+		position: relative;
+
 		& p{ 
 			@include set-font($fs - 3px, #c4b07a,36px, 600);
 			text-transform: uppercase;
@@ -127,10 +130,33 @@ header{
 			& #carts{
 				display: inherit;
 				vertical-align: top;
-				@include set-font($fs - 1px, #e8930c, 1.8rem);
+				@include set-font($fs - 1px, #e8930c, 1.3rem);
 
 				&:before{ content: "("; margin-left: 5px; }
 				&:after{ content: ")"; }
+			}
+		}
+
+		& #mobile-menu{
+			padding: 0;
+			margin: 0;
+			font-size: 30px;
+			line-height: 30px;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			display: none;
+			text-align: center;
+			bottom: 25px;
+			right: -55px;
+			z-index: 9;
+			color: black;
+
+			&:hover{ background: rgba(0, 0, 0, .1); }
+
+			&:before{
+				font-family: FontAwesome;
+				content: '\f0c9';
 			}
 		}
 	}
@@ -150,16 +176,16 @@ header{
 		}
 
 		& .search-container{
-			& #site-search{
-				width: 250px;
-				float: right;
-				margin-top: 10px; }
+			margin-top: 10px;
+			position: relative;
+
+			& #site-search{ width: 250px; }
 
 			& i{
 				position: absolute;
 				@include set-font(20px, #757f3c);
 				right: 8px;
-				bottom: 28px; }
+				bottom: 10px; }
 		}
 	}
 }
@@ -172,7 +198,6 @@ main{
 	-webkit-border-radius: 5px;
 			border-radius: 5px;
 
-
 	& > .row{
 		padding: 25px 35px;
 		height: auto;
@@ -183,14 +208,17 @@ main{
 			text-align: center;
 			position: relative;
 
-			& > *{ position: absolute; z-index: 1; }
+			& > *{ position: absolute; z-index: 10; }
 
 			& img{ visibility: hidden; }
 
 			& h1 { 
 				@include set-font(48px, white, 36px, bold);
-				top: 140px;
-				left: 50px; }
+				bottom: 210px;
+				left: 50px;
+				max-height: 150px;
+				text-align: left;
+				margin-right: 20px; }
 
 			& > a{
 				display: inline-block;
@@ -210,9 +238,12 @@ main{
 
 			& p {
 				@include set-font($fs + 4px, white, 24px);
-				margin: 30px 0 20px 50px;
+				display: block;
+				margin: 30px 0 20px 0;
 				top: 185px;
-				width: 650px;
+				right: 20px;
+				left: 50px;
+				max-width: 650px;
 				height: 72px;
 				overflow: hidden;
 				text-align: left;
@@ -313,18 +344,18 @@ aside.categories{
 
 	& .join{
 		position: relative;
+		& div{ 
+			& #join-input{
+				width: 160px;
+				float: left;
+				margin-top: -10px; }
 
-		& #join-input{
-			width: 160px;
-			float: left;
-			margin-top: -10px;
+			& i{
+				position: absolute;
+				@include set-font(20px, #757f3c);
+				left: 130px;
+				bottom: -14px; }
 		}
-
-		& i{
-			position: absolute;
-			@include set-font(20px, #757f3c);
-			left: 130px;
-			bottom: -12px; }
 	}
 }
 
@@ -353,6 +384,7 @@ footer{
 	& .row > *{
 		position: relative;
 		padding-right: 50px;
+		height: auto;
 
 		&:before{
 			position: absolute;
@@ -362,7 +394,6 @@ footer{
 		}
 	}
 
-
 	& .follow-footer{
 		& a{ position: relative; margin-left: 20px; }
 		& hr{ margin-right: 0 !important; }
@@ -370,16 +401,17 @@ footer{
 	}
 
 	& .shop{
-		height: 200px;
+		height: auto;
 		& p{
-			height: 200px;
+			height: auto;
+			margin-right: 50px;
+			padding-right: 50px;
 			-webkit-column-count: 2;
 			-moz-column-count: 2;
 			column-count: 2;
 			-webkit-column-gap: 10px;
 			-moz-column-gap: 10px;
-			column-gap: 10px;
-		}
+			column-gap: 10px; }
 	}
 
 	& nav .search-footer{ 
@@ -387,13 +419,14 @@ footer{
 		padding: 0; 
 		position: relative;
 
-		& input{ width: 100%; }
-
-		& i{
-			position: absolute;
-			@include set-font(20px, #757f3c);
-			right: 8px;
-			bottom: 13px;
+		& div{
+			position: relative;
+			& input{ width: 100%; }
+			& i{
+				position: absolute;
+				@include set-font(20px, #757f3c);
+				right: 8px;
+				bottom: 11px; }
 		}
 	}
 
@@ -405,5 +438,33 @@ footer{
 		position: absolute;
 		top: -20px;
 		text-transform: uppercase;
-		@include set-font($fs, #3b401e, 36px, bold);}
+		@include set-font($fs, #3b401e, 36px, bold); }
+}
+
+#modal{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(255, 255, 255, 0.8);
+	display: none;
+	text-align: center;
+
+	& nav.mobile-menu-nav{
+		display: inline-block;
+		width: 300px;
+		height: 300px;
+		position: absolute;
+
+		& a{
+			display: block;
+			margin-left: 20px;
+			margin-bottom: 30px;
+			text-decoration: none;
+			@include set-font($fs * 3, #3b401e, 36px, bold);
+
+			&:hover{ color: #757f3c; }
+		}
+	}
 }

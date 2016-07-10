@@ -1,11 +1,18 @@
 $(document).ready(function(){
 	$(".post").dotdotdot({after: "a.readmore"});
+	$("#main-header").dotdotdot();
+	alignCenter($(".mobile-menu-nav"));
 });
 
 $(window).resize(function(){
 	$(".post").dotdotdot( {after: "a.readmore"} );
+	$("#main-header").dotdotdot();
+	alignCenter($(".mobile-menu-nav"));
 });
 
+$("#mobile-menu").onclick(function(){
+	alignCenter($(".mobile-menu-nav"));
+});
 
 function positioningPicture(picture){
 	var mainImageStyles = document.createElement('style'),
@@ -23,3 +30,11 @@ function positioningPicture(picture){
 	mainImageStyles.innerHTML = "#main-pict { \n  position: absolute;\n  z-index: 0;\n " + left + "\n " + top + "\n  margin: " + marginTop + " 0 0 " + marginLeft + ";\n  visibility: visible; }";
 	document.body.appendChild(mainImageStyles);
 };
+
+function alignCenter(elem){
+	elem.css({
+		left: ($(window).width() - elem.width()) / 2 + 'px',
+		top: ($(window).height() - elem.height()) / 2 + 'px'
+	});
+	
+}
