@@ -34,7 +34,7 @@ $mbc: #f3efe4; /* main background color*/
 		size: $size;
 		weight: $weight;
 		style: $style;
-		family: Proxima Nova; }
+		family: $ff; }
 
 	line-height: $leading;
 	color: $color;
@@ -69,12 +69,15 @@ i.fa{ font-family: FontAwesome !important; }
 
 *:focus { outline: none !important; }
 
-html{ font-size: $fs; 
+html{ font-size: $fs;
 	& body{
 		background-color: $mbc;
 		overflow-x: hidden;
+		-ms-touch-action: pan-x;
+		-ms-content-zooming: none;
 
-		& body *{ font-family: $ff, Georgia, Arial;
+		& body *{
+			font-family: $ff, Georgia, Arial;
 			font-weight: normal;
 			color: black; }
 
@@ -465,6 +468,8 @@ footer{
 			@include set-font($fs * 3, #3b401e, 36px, bold);
 
 			&:hover{ color: #757f3c; }
+
+			&[data-dismiss='modal']{ color: #CD2D2D; }
 		}
 	}
 }
